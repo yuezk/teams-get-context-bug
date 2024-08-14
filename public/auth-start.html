@@ -1,0 +1,31 @@
+<!--This file is used during the Teams Bot authentication flow to assist with retrieval of the access token.-->
+<!--If you're not familiar with this, do not alter or remove this file from your project.-->
+<html>
+  <head>
+    <title>Login Start Page</title>
+    <meta charset="utf-8" />
+    <script
+      src="https://res.cdn.office.net/teams-js/2.25.0/js/MicrosoftTeams.min.js"
+      integrity="sha384-6royw0i5cEmf/8pzbTX9dVy1pjjJA8PQOaQbGvoL/m39OdjrlcWluhQZxqy5KbJA"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      pre {
+        background: #fff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <pre id="json"></pre>
+
+    <script type="text/javascript">
+      (async () => {
+        await microsoftTeams.app.initialize();
+        const context = await microsoftTeams.app.getContext();
+
+        document.querySelector("#json").innerText = JSON.stringify(context, null, 2);
+      })();
+    </script>
+  </body>
+</html>
